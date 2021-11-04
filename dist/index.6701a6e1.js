@@ -22756,7 +22756,7 @@ class MainView extends _reactDefault.default.Component {
         };
     }
     componentDidMount() {
-        _axiosDefault.default.get('https://myflix-heroku.herokuapp.com/movies').then((response)=>{
+        _axiosDefault.default.get('https://raftelapi.herokuapp.com/movies').then((response)=>{
             this.setState({
                 movies: response.data
             });
