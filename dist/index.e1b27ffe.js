@@ -24565,7 +24565,7 @@ function LoginView(props) {
                                         columnNumber: 17
                                     },
                                     __self: this,
-                                    children: "Welcome!"
+                                    children: "Welcome! Please Login"
                                 }),
                                 /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form.Group, {
                                     controlId: "formUsername",
@@ -24583,7 +24583,7 @@ function LoginView(props) {
                                                 columnNumber: 19
                                             },
                                             __self: this,
-                                            children: "Username:"
+                                            children: "Username"
                                         }),
                                         /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Control, {
                                             type: "text",
@@ -24614,7 +24614,7 @@ function LoginView(props) {
                                                 columnNumber: 19
                                             },
                                             __self: this,
-                                            children: "Password:"
+                                            children: "Password"
                                         }),
                                         /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Control, {
                                             type: "password",
