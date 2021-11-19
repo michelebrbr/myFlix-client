@@ -22870,7 +22870,6 @@ class MainView extends _reactDefault.default.Component {
                         __self: this,
                         children: [
                             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Navbar.Brand, {
-                                color: "white",
                                 href: "#home",
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
@@ -22933,7 +22932,7 @@ class MainView extends _reactDefault.default.Component {
                     })
                 }),
                 /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
-                    className: "main-view justify-content-md-center",
+                    className: "main-view",
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
                         lineNumber: 109,
