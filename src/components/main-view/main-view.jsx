@@ -106,7 +106,7 @@ export class MainView extends React.Component {
               </Navbar.Collapse>
             </Container>
           </Navbar>
-          <Row className="main-view">
+          <Row className="main-view justify-content-md-center">
           {selectedMovie
             ? (
               <Col>
