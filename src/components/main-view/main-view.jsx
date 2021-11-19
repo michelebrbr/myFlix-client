@@ -96,7 +96,7 @@ export class MainView extends React.Component {
         <div className="main-view">
           <Navbar bg="light" expand="lg">
             <Container>
-              <Navbar.Brand color="white" href="#home">MyFlix APP</Navbar.Brand>
+              <Navbar.Brand href="#home">MyFlix APP</Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
@@ -106,7 +106,7 @@ export class MainView extends React.Component {
               </Navbar.Collapse>
             </Container>
           </Navbar>
-          <Row className="main-view justify-content-md-center">
+          <Row className="main-view">
           {selectedMovie
             ? (
               <Col>
