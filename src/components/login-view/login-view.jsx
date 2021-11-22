@@ -17,14 +17,14 @@ export function LoginView(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Send a request to the server for authentication
-    axios.get('https://raftelapi.herokuapp.com/login', {
-      Username: username,
-      Password: password
+    axios.post('https://raftelapi.herokuapp.com/login', {
+      username: username,
+      password: password
     })
     .then(response => {
-      //const data = response.data;
-      console.log(response);
-      //props.onLoggedIn(data);
+      const data = response.data;
+      console.log(data);
+      props.onLoggedIn(data);
     })
     .catch(e => {
       console.log('This username does not exist')
