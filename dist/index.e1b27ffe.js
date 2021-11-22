@@ -22853,7 +22853,7 @@ class MainView extends _reactDefault.default.Component {
             __self: this,
             children: [
                 /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Navbar, {
-                    bg: "light",
+                    bg: "dark",
                     expand: "lg",
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
@@ -24580,7 +24580,8 @@ function LoginView(props) {
     props.onLoggedIn(username);
   };*/ const handleSubmit = (e)=>{
         e.preventDefault();
-        /* Send a request to the server for authentication */ _axiosDefault.default.post('https://raftelapi.herokuapp.com/login', {
+        // Send a request to the server for authentication
+        _axiosDefault.default.post('https://raftelapi.herokuapp.com/login', {
             Username: username,
             Password: password
         }).then((response)=>{
