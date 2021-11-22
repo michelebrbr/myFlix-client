@@ -93,7 +93,7 @@ export class MainView extends React.Component {
   
       return (
         <div className="main-view">
-          <Navbar bg="light" expand="lg">
+          <Navbar bg="dark" expand="lg">
             <Container>
               <Navbar.Brand href="#home">MyFlix APP</Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
