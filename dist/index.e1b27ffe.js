@@ -22871,6 +22871,9 @@ class MainView extends _reactDefault.default.Component {
                         children: [
                             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Navbar.Brand, {
                                 href: "#home",
+                                style: {
+                                    color: "#ffffff"
+                                },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
                                     lineNumber: 98,
@@ -22907,6 +22910,9 @@ class MainView extends _reactDefault.default.Component {
                                     children: [
                                         /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
                                             href: "#home",
+                                            style: {
+                                                color: "#ffffff"
+                                            },
                                             __source: {
                                                 fileName: "src/components/main-view/main-view.jsx",
                                                 lineNumber: 102,
@@ -22917,6 +22923,9 @@ class MainView extends _reactDefault.default.Component {
                                         }),
                                         /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
                                             href: "#link",
+                                            style: {
+                                                color: "#ffffff"
+                                            },
                                             __source: {
                                                 fileName: "src/components/main-view/main-view.jsx",
                                                 lineNumber: 103,
@@ -22940,6 +22949,7 @@ class MainView extends _reactDefault.default.Component {
                     },
                     __self: this,
                     children: selectedMovie ? /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
+                        lg: 6,
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
                             lineNumber: 111,
