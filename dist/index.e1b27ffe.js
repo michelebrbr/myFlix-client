@@ -22778,49 +22778,20 @@ class MainView extends _reactDefault.default.Component {
             selectedMovie: newSelectedMovie1
         });
     }
-    onLoggedIn(user) {
+    /*onLoggedIn(user) {
+      this.setState({
+        user
+      });
+    }*/ onLoggedIn(authData) {
+        console.log(authData);
         this.setState({
-            user
+            user: authData.user.username
         });
+        localStorage.setItem('token', authData.token);
+        localStorage.setItem('user', authData.user.username);
+        this.getMovies(authData.token);
     }
-    /*render() {
-      const { movies, selectedMovie, } = this.state;
-  
-  
-      if (movies.length === 0) return <div className="main-view">The list is empty!</div>;
-  
-      return (
-        <div className="main-view">
-          {selectedMovie
-            ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
-            : movies.map(movie => (
-              <MovieCard key={movie._id} movie={movie} onMovieClick={(movie) => { this.setSelectedMovie(movie) }}/>
-            ))
-          }
-        </div>
-      );
-    }*/ /*render() {
-      const { movies, selectedMovie, user } = this.state;
-  
-      // If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView
-      if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
-  
-      // Before the movies have been loaded
-      if (movies.length === 0) return <div className="main-view" />;
-  
-      return (
-        <div className="main-view">
-          {//If the state of `selectedMovie` is not null, that selected movie will be returned otherwise, all *movies will be returned}
-          {selectedMovie
-            ? 
-                <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
-            : movies.map(movie => (
-              <MovieCard key={movie._id} movie={movie} onMovieClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie) }}/>
-           ))
-          }
-        </div>
-      );
-    }*/ render() {
+    render() {
         const { movies , selectedMovie , user: user1  } = this.state;
         /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details 
       are *passed as a prop to the LoginView*/ if (!user1) return(/*#__PURE__*/ _jsxRuntime.jsx(_loginView.LoginView, {
@@ -22828,7 +22799,7 @@ class MainView extends _reactDefault.default.Component {
             ,
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 89,
+                lineNumber: 60,
                 columnNumber: 25
             },
             __self: this
@@ -22838,7 +22809,7 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 92,
+                lineNumber: 63,
                 columnNumber: 39
             },
             __self: this
@@ -22847,7 +22818,7 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 95,
+                lineNumber: 66,
                 columnNumber: 9
             },
             __self: this,
@@ -22857,14 +22828,14 @@ class MainView extends _reactDefault.default.Component {
                     expand: "lg",
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 96,
+                        lineNumber: 67,
                         columnNumber: 11
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Container, {
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 97,
+                            lineNumber: 68,
                             columnNumber: 13
                         },
                         __self: this,
@@ -22876,7 +22847,7 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 98,
+                                    lineNumber: 69,
                                     columnNumber: 15
                                 },
                                 __self: this,
@@ -22886,7 +22857,7 @@ class MainView extends _reactDefault.default.Component {
                                 "aria-controls": "basic-navbar-nav",
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 99,
+                                    lineNumber: 70,
                                     columnNumber: 15
                                 },
                                 __self: this
@@ -22895,7 +22866,7 @@ class MainView extends _reactDefault.default.Component {
                                 id: "basic-navbar-nav",
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 100,
+                                    lineNumber: 71,
                                     columnNumber: 15
                                 },
                                 __self: this,
@@ -22903,7 +22874,7 @@ class MainView extends _reactDefault.default.Component {
                                     className: "me-auto",
                                     __source: {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 101,
+                                        lineNumber: 72,
                                         columnNumber: 17
                                     },
                                     __self: this,
@@ -22916,7 +22887,7 @@ class MainView extends _reactDefault.default.Component {
                                             },
                                             __source: {
                                                 fileName: "src/components/main-view/main-view.jsx",
-                                                lineNumber: 102,
+                                                lineNumber: 73,
                                                 columnNumber: 19
                                             },
                                             __self: this,
@@ -22930,7 +22901,7 @@ class MainView extends _reactDefault.default.Component {
                                             },
                                             __source: {
                                                 fileName: "src/components/main-view/main-view.jsx",
-                                                lineNumber: 103,
+                                                lineNumber: 74,
                                                 columnNumber: 19
                                             },
                                             __self: this,
@@ -22946,14 +22917,14 @@ class MainView extends _reactDefault.default.Component {
                     className: "main-view justify-content-md-center",
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 108,
+                        lineNumber: 79,
                         columnNumber: 11
                     },
                     __self: this,
                     children: selectedMovie ? /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 111,
+                            lineNumber: 82,
                             columnNumber: 15
                         },
                         __self: this,
@@ -22964,7 +22935,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 112,
+                                lineNumber: 83,
                                 columnNumber: 17
                             },
                             __self: this
@@ -22977,7 +22948,7 @@ class MainView extends _reactDefault.default.Component {
                             xs: 12,
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 116,
+                                lineNumber: 87,
                                 columnNumber: 15
                             },
                             __self: this,
@@ -22988,7 +22959,7 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 117,
+                                    lineNumber: 88,
                                     columnNumber: 17
                                 },
                                 __self: this
