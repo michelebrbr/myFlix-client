@@ -99,8 +99,8 @@ export class MainView extends React.Component {
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
-                  <Nav.Link href="#home" style={{ color:"#ffffff"}}>Home</Nav.Link>
-                  <Nav.Link href="#link" style={{ color:"#ffffff"}}>Profile</Nav.Link>
+                  <Nav.Link href="#home" style={{ color:"#ffffff", font:"icon"}}>Home</Nav.Link>
+                  <Nav.Link href="#link" style={{ color:"#ffffff", font:"icon"}}>Profile</Nav.Link>
                 </Nav>
               </Navbar.Collapse>
             </Container>
@@ -108,12 +108,12 @@ export class MainView extends React.Component {
           <Row className="main-view justify-content-md-center">
           {selectedMovie
             ? (
-              <Col lg={6}>
+              <Col>
                 <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
               </Col>
             )
             : movies.map((movie) => (
-              <Col md={3} key={movie._id}>
+              <Col xl={3} lg={4} md={6} sm={12} xs={12} key={movie._id}>
                 <MovieCard
                   movie={movie}
                   onMovieClick={(newSelectedMovie) => {
