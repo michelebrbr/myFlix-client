@@ -22911,7 +22911,8 @@ class MainView extends _reactDefault.default.Component {
                                         /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
                                             href: "#home",
                                             style: {
-                                                color: "#ffffff"
+                                                color: "#ffffff",
+                                                font: "icon"
                                             },
                                             __source: {
                                                 fileName: "src/components/main-view/main-view.jsx",
@@ -22924,7 +22925,8 @@ class MainView extends _reactDefault.default.Component {
                                         /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
                                             href: "#link",
                                             style: {
-                                                color: "#ffffff"
+                                                color: "#ffffff",
+                                                font: "icon"
                                             },
                                             __source: {
                                                 fileName: "src/components/main-view/main-view.jsx",
@@ -22949,7 +22951,6 @@ class MainView extends _reactDefault.default.Component {
                     },
                     __self: this,
                     children: selectedMovie ? /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
-                        lg: 6,
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
                             lineNumber: 111,
@@ -22969,7 +22970,11 @@ class MainView extends _reactDefault.default.Component {
                             __self: this
                         })
                     }) : movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
-                            md: 3,
+                            xl: 3,
+                            lg: 4,
+                            md: 6,
+                            sm: 12,
+                            xs: 12,
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
                                 lineNumber: 116,
@@ -37463,6 +37468,9 @@ class MovieCard extends _reactDefault.default.Component {
                             children: movie.description
                         }),
                         /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
+                            style: {
+                                color: "#808080"
+                            },
                             onClick: ()=>onMovieClick(movie)
                             ,
                             variant: "link",
