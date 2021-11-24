@@ -95,12 +95,12 @@ export class MainView extends React.Component {
         <div className="main-view">
           <Navbar bg="dark" expand="lg">
             <Container>
-              <Navbar.Brand href="#home">MyFlix APP</Navbar.Brand>
+              <Navbar.Brand href="#home" style={{ color:"#ffffff"}}>MyFlix APP</Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
-                  <Nav.Link href="#home">Home</Nav.Link>
-                  <Nav.Link href="#link">Profile</Nav.Link>
+                  <Nav.Link href="#home" style={{ color:"#ffffff"}}>Home</Nav.Link>
+                  <Nav.Link href="#link" style={{ color:"#ffffff"}}>Profile</Nav.Link>
                 </Nav>
               </Navbar.Collapse>
             </Container>
@@ -108,7 +108,7 @@ export class MainView extends React.Component {
           <Row className="main-view justify-content-md-center">
           {selectedMovie
             ? (
-              <Col>
+              <Col lg={6}>
                 <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
               </Col>
             )
