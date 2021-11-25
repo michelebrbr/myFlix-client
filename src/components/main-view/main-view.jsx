@@ -1,6 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 //import { RegistrationView } from '../registration-view/registration-view';
+
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
@@ -67,7 +70,7 @@ export class MainView extends React.Component {
     }*/
 
     onLoggedIn(authData) {
-      console.log(authData);
+      //console.log(authData);
       this.setState({
         user: authData.user.username
       });
@@ -98,7 +101,7 @@ export class MainView extends React.Component {
   
       return (
         <div className="main-view">
-          <Navbar bg="dark" expand="lg">
+          <Navbar bg="dark" expand='md'>
             <Container>
             <button onClick={() => { this.onLoggedOut() }}>Logout</button>
               <Navbar.Brand href="#home" style={{ color:"#ffffff"}}>MyFlix APP</Navbar.Brand>
@@ -119,7 +122,7 @@ export class MainView extends React.Component {
               </Col>
             )
             : movies.map((movie) => (
-              <Col xl={3} lg={4} md={6} sm={12} xs={12} key={movie._id}>
+              <Col lg='4' md='6' sm='12'  key={movie._id}>
                 <MovieCard
                   movie={movie}
                   onMovieClick={(newSelectedMovie) => {
