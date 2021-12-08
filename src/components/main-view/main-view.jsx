@@ -2,12 +2,12 @@ import React from 'react';
 import axios from 'axios';
 //import { RegistrationView } from '../registration-view/registration-view';
 
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
-import { Navbar, Nav, Container, Row, Col } from 'react-bootstrap';
+import { Navbar, Nav, Container, Row, Col, Button, Image } from 'react-bootstrap';
 
 export class MainView extends React.Component {
 
@@ -61,7 +61,7 @@ export class MainView extends React.Component {
       this.setState({
         selectedMovie: newSelectedMovie
       });
-    }
+    } //commentato via per il 3.6
 
     /*onLoggedIn(user) {
       this.setState({
@@ -87,12 +87,12 @@ export class MainView extends React.Component {
         user: null
       });
     }
+    
 
-    render() {
+    /*render() {
       const { movies, selectedMovie, user } = this.state;
   
-      /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details 
-      are *passed as a prop to the LoginView*/
+      // If there is no user, the LoginView is rendered. If there is a user logged in, the user details are passed as a prop to the LoginView
       if(!user) return  <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
       
   
@@ -135,7 +135,93 @@ export class MainView extends React.Component {
           }
           </Row>
         </div>
-      );    
+      );
+    }*/
+
+    /*render() {
+      const { movies, user } = this.state;
+      return(
+        <Router>
+          <Navbar expand="lg" className="mb-4" sticky="top">
+                    <Navbar.Brand className="ml-4">
+                        <Link to={'/'}>
+                            <Image src="https://i.imgur.com/ykYgWv5.png" alt="myFlix logo" className="d-inline-block align-top" />
+                        </Link>
+                    </Navbar.Brand>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                        {user && (
+                            <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+                                <Link to={`/users/${user.username}`} className="mr-2">
+                                    <Button varient="link">Profile for {user.username}</Button>
+                                </Link>
+                                <Button onClick={() => this.onLoggedOut()} varient="link">Logout</Button>
+                            </Navbar.Collapse>
+                        )}
+
+                </Navbar>
+          <Row className="main-view justify-content-md-center">
+            <Route exact path="/" element={LoginView}/>
+          </Row>
+        </Router>
+
+      )
+    
+    }*/
+
+    render() {
+      const { movies, selectedMovie, user } = this.state;
+  
+      if (!user) return <Row>
+        <Col>
+          <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+        </Col>
+      </Row>
+      if (movies.length === 0) return <div className="main-view" />;
+  
+      return (
+        <Router>
+          <Navbar expand="lg" className="mb-4" sticky="top">
+                    <Navbar.Brand className="ml-4">
+                        <Link to={'/'}>
+                            <Image src="https://i.imgur.com/ykYgWv5.png" alt="myFlix logo" className="d-inline-block align-top" />
+                        </Link>
+                    </Navbar.Brand>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                        {user && (
+                            <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+                                <Link to={`/users/${user.username}`} className="mr-2">
+                                    <Button varient="link">Profile for {user.username}</Button>
+                                </Link>
+                                <Button onClick={() => this.onLoggedOut()} varient="link">Logout</Button>
+                            </Navbar.Collapse>
+                        )}
+
+                </Navbar>
+          <Row className="main-view justify-content-md-center">
+
+            <Route exact path="/" render={() => {
+                  if (!user) return <Col>
+                    <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+                  </Col>
+                  return this.state.selectedMovie ? 
+                  <Col>
+                <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
+              </Col> : movies.map(movie => (
+                    <Col md={3} key={movie._id}>
+                      <MovieCard
+                  movie={movie}
+                  onMovieClick={(newSelectedMovie) => {
+                    this.setSelectedMovie(newSelectedMovie);
+                  }}
+                  
+                />
+                    </Col>
+                  ))
+                }} />
+            
+          </Row>
+        </Router>
+      );
     }
 }
 
