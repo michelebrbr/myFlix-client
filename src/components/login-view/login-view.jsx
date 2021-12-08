@@ -33,12 +33,12 @@ export function LoginView(props) {
 
 
   return (
-    <Container>
+    <Container style={{ width: '30%', margin: 'auto' }}>
       <Row>
         <Col>
           <Form>
             <CardGroup>
-              <Card>
+              <Card >
                 <Card.Header>Welcome! Please Login</Card.Header>
                 <Form.Group controlId="formUsername">
                   <Form.Label>Username</Form.Label>
