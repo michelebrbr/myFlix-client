@@ -198,7 +198,6 @@ export class MainView extends React.Component {
 
                 </Navbar>
           <Row className="main-view justify-content-md-center">
-
             <Route exact path="/" render={() => {
                   if (!user) return <Col>
                     <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
@@ -212,13 +211,11 @@ export class MainView extends React.Component {
                   movie={movie}
                   onMovieClick={(newSelectedMovie) => {
                     this.setSelectedMovie(newSelectedMovie);
-                  }}
-                  
+                  }} 
                 />
                     </Col>
                   ))
                 }} />
-            
           </Row>
         </Router>
       );
