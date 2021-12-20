@@ -8,6 +8,7 @@ import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { Navbar, Nav, Container, Row, Col, Button, Image } from 'react-bootstrap';
+import { ProfileView } from '../profile-view/profile-view';
 
 export class MainView extends React.Component {
 
@@ -16,7 +17,8 @@ export class MainView extends React.Component {
     this.state = {
       movies: [],
       selectedMovie: null,
-      user: null
+      user: null,
+      userObject: null
     }
   }
 
@@ -35,23 +37,12 @@ export class MainView extends React.Component {
     });
   }
   
-  /*componentDidMount(){
-    axios.get('https://raftelapi.herokuapp.com/movies')
-      .then(response => {
-        this.setState({
-          movies: response.data
-        });
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }*/
-
   componentDidMount() {
     let accessToken = localStorage.getItem('token');
     if (accessToken !== null) {
       this.setState({
-        user: localStorage.getItem('user')
+        user: localStorage.getItem('user'),
+        userObject: localStorage.getItem('userObject')
       });
       this.getMovies(accessToken);
     }
@@ -61,7 +52,7 @@ export class MainView extends React.Component {
       this.setState({
         selectedMovie: newSelectedMovie
       });
-    } //commentato via per il 3.6
+    } 
 
     /*onLoggedIn(user) {
       this.setState({
@@ -70,13 +61,17 @@ export class MainView extends React.Component {
     }*/
 
     onLoggedIn(authData) {
-      //console.log(authData);
+      console.log(authData);
+      console.log(authData.user);
       this.setState({
-        user: authData.user.username
+        user: authData.user.username,
+        userObject: authData.user
+
       });
     
       localStorage.setItem('token', authData.token);
       localStorage.setItem('user', authData.user.username);
+      localStorage.setItem('userObject', authData.user);
       this.getMovies(authData.token);
     }
 
@@ -89,137 +84,62 @@ export class MainView extends React.Component {
     }
     
 
-    /*render() {
-      const { movies, selectedMovie, user } = this.state;
-  
-      // If there is no user, the LoginView is rendered. If there is a user logged in, the user details are passed as a prop to the LoginView
-      if(!user) return  <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
-      
-  
-      // Before the movies have been loaded
-      if (movies.length === 0) return <div className="main-view" />;
-  
-      return (
-        <div className="main-view">
-          <Navbar bg="dark" expand='md'>
-            <Container>
-            <button onClick={() => { this.onLoggedOut() }}>Logout</button>
-              <Navbar.Brand href="#home" style={{ color:"#ffffff"}}>MyFlix APP</Navbar.Brand>
-              <Navbar.Toggle aria-controls="basic-navbar-nav" />
-              <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="me-auto">
-                  <Nav.Link href="#home" style={{ color:"#ffffff", font:"icon"}}>Home</Nav.Link>
-                  <Nav.Link href="#link" style={{ color:"#ffffff", font:"icon"}}>Profile</Nav.Link>
-                </Nav>
-              </Navbar.Collapse>
-            </Container>
-          </Navbar>
-          <Row className="main-view justify-content-md-center">
-          {selectedMovie
-            ? (
-              <Col>
-                <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
-              </Col>
-            )
-            : movies.map((movie) => (
-              <Col lg='4' md='6' sm='12'  key={movie._id}>
-                <MovieCard
-                  movie={movie}
-                  onMovieClick={(newSelectedMovie) => {
-                    this.setSelectedMovie(newSelectedMovie);
-                  }}
-                  
-                />
-              </Col>
-            ))        
-          }
-          </Row>
-        </div>
-      );
-    }*/
+  render() {
+    const { movies, selectedMovie, user, userObject } = this.state;
+    console.log("user", userObject);
 
-    /*render() {
-      const { movies, user } = this.state;
-      return(
-        <Router>
-          <Navbar expand="lg" className="mb-4" sticky="top">
-                    <Navbar.Brand className="ml-4">
-                        <Link to={'/'}>
-                            <Image src="https://i.imgur.com/ykYgWv5.png" alt="myFlix logo" className="d-inline-block align-top" />
-                        </Link>
-                    </Navbar.Brand>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                        {user && (
-                            <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-                                <Link to={`/users/${user.username}`} className="mr-2">
-                                    <Button varient="link">Profile for {user.username}</Button>
-                                </Link>
-                                <Button onClick={() => this.onLoggedOut()} varient="link">Logout</Button>
-                            </Navbar.Collapse>
-                        )}
+    if (!user) return <Row>
+      <Col>
+        <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+      </Col>
+    </Row>
+    if (movies.length === 0) return <div className="main-view" />;
 
-                </Navbar>
-          <Row className="main-view justify-content-md-center">
-            <Route exact path="/" element={LoginView}/>
-          </Row>
-        </Router>
-
-      )
-    
-    }*/
-
-    render() {
-      const { movies, selectedMovie, user } = this.state;
-  
-      if (!user) return <Row>
-        <Col>
-          <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
-        </Col>
-      </Row>
-      if (movies.length === 0) return <div className="main-view" />;
-  
-      return (
-        <Router>
-          <Navbar expand="lg" className="mb-4" sticky="top">
-                    <Navbar.Brand className="ml-4">
-                        <Link to={'/'}>
-                            <Image src="https://i.imgur.com/ykYgWv5.png" alt="myFlix logo" className="d-inline-block align-top" />
-                        </Link>
-                    </Navbar.Brand>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                        {user && (
-                            <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-                                <Link to={`/users/${user.username}`} className="mr-2">
-                                    <Button varient="link">Profile for {user.username}</Button>
-                                </Link>
-                                <Button onClick={() => this.onLoggedOut()} varient="link">Logout</Button>
-                            </Navbar.Collapse>
-                        )}
-
-                </Navbar>
-          <Row className="main-view justify-content-md-center">
-            <Route exact path="/" render={() => {
-                  if (!user) return <Col>
-                    <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+    return (
+      <Router>
+        <Navbar expand="lg" className="mb-4" sticky="top">
+          <Navbar.Brand className="ml-4">
+            <Link to={'/'}>
+              <Image src="https://i.imgur.com/ykYgWv5.png" alt="myFlix logo" className="d-inline-block align-top" />
+            </Link>
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+              {user && (
+                <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+                    <Link to={`/profile`} className="mr-2">
+                        <Button varient="link">Profile for {user}</Button>
+                    </Link>
+                    <Button onClick={() => this.onLoggedOut()} varient="link">Logout</Button>
+                </Navbar.Collapse>
+              )}
+        </Navbar>
+        <Row className="main-view justify-content-md-center">
+          <Route exact path="/" render={() => {
+                if (!user) return <Col>
+                  <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+                </Col>
+                return this.state.selectedMovie ? 
+                <Col>
+              <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
+            </Col> : movies.map(movie => (
+                  <Col md={3} key={movie._id}>
+                    <MovieCard
+                movie={movie}
+                onMovieClick={(newSelectedMovie) => {
+                  this.setSelectedMovie(newSelectedMovie);
+                }} 
+              />
                   </Col>
-                  return this.state.selectedMovie ? 
-                  <Col>
-                <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
-              </Col> : movies.map(movie => (
-                    <Col md={3} key={movie._id}>
-                      <MovieCard
-                  movie={movie}
-                  onMovieClick={(newSelectedMovie) => {
-                    this.setSelectedMovie(newSelectedMovie);
-                  }} 
-                />
-                    </Col>
-                  ))
-                }} />
-          </Row>
-        </Router>
-      );
-    }
+                ))
+              }} />
+          <Route exact path="/profile" render={() => {
+            return <ProfileView 
+            userObject = {userObject} />
+          }}/>
+        </Row>
+      </Router>
+    );
+  }
 }
 
 export default MainView;
