@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from "react-router-dom";
+
 
 export class MovieView extends React.Component {
 
@@ -18,15 +20,12 @@ export class MovieView extends React.Component {
           <span className="label"><br></br>Description:<br></br> </span>
           <span className="value">{movie.description}</span>
         </div>
-        <div className="movie-director">
-          <span className="label"><br></br>Director:<br></br> </span>
-          <span className="value">{movie.director.name}</span>
-        </div>
-        <div className="movie-director">
-          <span className="label"> <br></br></span>
-          <span className="value">{movie.director.bio}</span>
-        </div>
-        
+        <Link to={`/director`} className="mr-2">
+          <button>Director</button><br></br>
+        </Link>
+        <Link to={`/genre`} className="mr-2">
+          <button>Genre</button><br></br>
+        </Link>
         <button onClick={() => { onBackClick(null); }}>Back</button>
 
       </div>
