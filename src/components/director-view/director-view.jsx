@@ -1,13 +1,18 @@
 import React from 'react';
-import { propTypes } from 'prop-types';
-import { Card } from 'react-bootstrap/card';
-import { Button } from 'react-bootstrap/button';
+import { Link } from "react-router-dom";
 
 import './director-view.scss'
 
 export class DirectorView extends React.Component {
-    render() {
-        console.log("testing", this.props);
-        const { director, onBackClick } = this.props;
+    render(){
+        console.log('dw props:',this.props);
+        return(
+            <div>
+                <p>Director view:</p>
+                <Link to={`/`} className="mr-2">
+                    <button>Home</button>
+                </Link>
+            </div>
+        )
     }
 }
