@@ -9,6 +9,8 @@ import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { Navbar, Nav, Container, Row, Col, Button, Image } from 'react-bootstrap';
 import { ProfileView } from '../profile-view/profile-view';
+import { DirectorView} from '../director-view/director-view';
+import { GenreView } from '../genre-view/genre-view';
 
 export class MainView extends React.Component {
 
@@ -97,7 +99,7 @@ export class MainView extends React.Component {
 
     return (
       <Router>
-        <Navbar expand="lg" className="mb-4" sticky="top">
+        <Navbar expand="lg" className="mb-4">
           <Navbar.Brand className="ml-4">
             <Link to={'/'}>
               <Image src="https://i.imgur.com/ykYgWv5.png" alt="myFlix logo" className="d-inline-block align-top" />
@@ -136,6 +138,13 @@ export class MainView extends React.Component {
             return <ProfileView 
             userObject = {userObject} />
           }}/>
+          <Route exact path="/director" render={() => {
+            return <DirectorView />
+          }}/>
+          <Route exact path="/genre" render={() => {
+            return <GenreView />
+          }}/>
+          
         </Row>
       </Router>
     );
