@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-
 import './genre-view.scss'
 
 export class GenreView extends React.Component {
@@ -9,9 +8,9 @@ export class GenreView extends React.Component {
         console.log('gw props:',this.props);
         return(
             <div>
-                <p>Genre view:</p>
+                <h1>Genre view:</h1>
                 <Link to={`/`} className="mr-2">
-                    <button>Home</button>
+                    <button>go back</button>
                 </Link>
             </div>
         )
