@@ -15,6 +15,7 @@ import { GenreView } from '../genre-view/genre-view';
 export class MainView extends React.Component {
 
   constructor() {
+
     super();
     this.state = {
       movies: [],
@@ -47,7 +48,9 @@ export class MainView extends React.Component {
         userObject: localStorage.getItem('userObject')
       });
       this.getMovies(accessToken);
+      
     }
+    
   }
 
     setSelectedMovie(newSelectedMovie) {
@@ -88,7 +91,9 @@ export class MainView extends React.Component {
 
   render() {
     const { movies, selectedMovie, user, userObject } = this.state;
-    console.log("user", userObject);
+    
+    
+
 
     if (!user) return <Row>
       <Col>
@@ -138,8 +143,10 @@ export class MainView extends React.Component {
             return <ProfileView 
             userObject = {userObject} />
           }}/>
-          <Route exact path="/director" render={() => {
-            return <DirectorView />
+          <Route exact path="/director/:name" render={(match, history) => {
+            return <DirectorView 
+            director={movies.filter((movie) => movie.director.name === match.params.name) }
+            />
           }}/>
           <Route exact path="/genre" render={() => {
             return <GenreView />
