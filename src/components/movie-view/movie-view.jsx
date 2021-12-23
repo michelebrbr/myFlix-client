@@ -20,7 +20,7 @@ export class MovieView extends React.Component {
           <span className="label"><br></br>Description:<br></br> </span>
           <span className="value">{movie.description}</span>
         </div>
-        <Link to={`/director`} className="mr-2">
+        <Link to={`/director/${movie.director.name}`} className="mr-2">
           <button>Director</button><br></br>
         </Link>
         <Link to={`/genre`} className="mr-2">
