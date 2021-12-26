@@ -39,6 +39,7 @@ export class MainView extends React.Component {
       console.log(error);
     });
   }
+
   
   componentDidMount() {
     let accessToken = localStorage.getItem('token');
@@ -143,13 +144,15 @@ export class MainView extends React.Component {
             return <ProfileView 
             userObject = {userObject} />
           }}/>
-          <Route exact path="/director/:name" render={(match, history) => {
+          <Route exact path="/director/:name" render={({match}) => {
+            if (movies.length === 0) return <div className="main-view" />;
             return <DirectorView 
-            director={movies.filter((movie) => movie.director.name === match.params.name) }
+            directorObject={movies.find((movie) => movie.director.name === match.params.name).director }
             />
           }}/>
-          <Route exact path="/genre" render={() => {
-            return <GenreView />
+          <Route exact path="/genre" render={({match}) => {
+            return <GenreView 
+            genre={movies.find((movie) => movie.genre.genreName === match.params.genreName).genre }/>
           }}/>
           
         </Row>
