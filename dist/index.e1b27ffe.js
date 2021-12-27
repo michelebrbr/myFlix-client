@@ -22826,14 +22826,14 @@ class MainView extends _reactDefault.default.Component {
         if (!user1) return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 99,
+                lineNumber: 96,
                 columnNumber: 23
             },
             __self: this,
             children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
                 __source: {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 100,
+                    lineNumber: 97,
                     columnNumber: 7
                 },
                 __self: this,
@@ -22842,7 +22842,7 @@ class MainView extends _reactDefault.default.Component {
                     ,
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 101,
+                        lineNumber: 98,
                         columnNumber: 9
                     },
                     __self: this
@@ -22853,7 +22853,7 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 104,
+                lineNumber: 101,
                 columnNumber: 37
             },
             __self: this
@@ -22861,7 +22861,7 @@ class MainView extends _reactDefault.default.Component {
         return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactRouterDom.BrowserRouter, {
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 107,
+                lineNumber: 104,
                 columnNumber: 7
             },
             __self: this,
@@ -22871,7 +22871,7 @@ class MainView extends _reactDefault.default.Component {
                     className: "mb-4",
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 108,
+                        lineNumber: 105,
                         columnNumber: 9
                     },
                     __self: this,
@@ -22880,7 +22880,7 @@ class MainView extends _reactDefault.default.Component {
                             className: "ml-4",
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 109,
+                                lineNumber: 106,
                                 columnNumber: 11
                             },
                             __self: this,
@@ -22888,7 +22888,7 @@ class MainView extends _reactDefault.default.Component {
                                 to: '/',
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 110,
+                                    lineNumber: 107,
                                     columnNumber: 13
                                 },
                                 __self: this,
@@ -22898,7 +22898,7 @@ class MainView extends _reactDefault.default.Component {
                                     className: "d-inline-block align-top",
                                     __source: {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 111,
+                                        lineNumber: 108,
                                         columnNumber: 15
                                     },
                                     __self: this
@@ -22909,7 +22909,7 @@ class MainView extends _reactDefault.default.Component {
                             "aria-controls": "basic-navbar-nav",
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 114,
+                                lineNumber: 111,
                                 columnNumber: 11
                             },
                             __self: this
@@ -22919,7 +22919,7 @@ class MainView extends _reactDefault.default.Component {
                             className: "justify-content-end",
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 116,
+                                lineNumber: 113,
                                 columnNumber: 17
                             },
                             __self: this,
@@ -22929,7 +22929,7 @@ class MainView extends _reactDefault.default.Component {
                                     className: "mr-2",
                                     __source: {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 117,
+                                        lineNumber: 114,
                                         columnNumber: 21
                                     },
                                     __self: this,
@@ -22937,7 +22937,7 @@ class MainView extends _reactDefault.default.Component {
                                         varient: "link",
                                         __source: {
                                             fileName: "src/components/main-view/main-view.jsx",
-                                            lineNumber: 118,
+                                            lineNumber: 115,
                                             columnNumber: 25
                                         },
                                         __self: this,
@@ -22953,7 +22953,7 @@ class MainView extends _reactDefault.default.Component {
                                     varient: "link",
                                     __source: {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 120,
+                                        lineNumber: 117,
                                         columnNumber: 21
                                     },
                                     __self: this,
@@ -22967,7 +22967,7 @@ class MainView extends _reactDefault.default.Component {
                     className: "main-view justify-content-md-center",
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 124,
+                        lineNumber: 121,
                         columnNumber: 9
                     },
                     __self: this,
@@ -23001,7 +23001,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 125,
+                                lineNumber: 122,
                                 columnNumber: 11
                             },
                             __self: this
@@ -23016,7 +23016,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 143,
+                                lineNumber: 140,
                                 columnNumber: 11
                             },
                             __self: this
@@ -23035,23 +23035,26 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 147,
+                                lineNumber: 144,
                                 columnNumber: 11
                             },
                             __self: this
                         }),
                         /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
                             exact: true,
-                            path: "/genre",
+                            path: "/genre/:name",
                             render: ({ match  })=>{
+                                if (movies.length === 0) return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
+                                    className: "main-view"
+                                }));
                                 return(/*#__PURE__*/ _jsxRuntime.jsx(_genreView.GenreView, {
-                                    genre: movies.find((movie)=>movie.genre.genreName === match.params.genreName
+                                    genreObject: movies.find((movie)=>movie.genre.name === match.params.name
                                     ).genre
                                 }));
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 153,
+                                lineNumber: 150,
                                 columnNumber: 11
                             },
                             __self: this
@@ -27697,6 +27700,7 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactBootstrap = require("react-bootstrap");
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _reactRouterDom = require("react-router-dom");
 var _s = $RefreshSig$();
 function LoginView(props) {
     _s();
@@ -27729,42 +27733,42 @@ function LoginView(props) {
         },
         __source: {
             fileName: "src/components/login-view/login-view.jsx",
-            lineNumber: 36,
+            lineNumber: 38,
             columnNumber: 5
         },
         __self: this,
         children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
             __source: {
                 fileName: "src/components/login-view/login-view.jsx",
-                lineNumber: 37,
+                lineNumber: 39,
                 columnNumber: 7
             },
             __self: this,
             children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
                 __source: {
                     fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 38,
+                    lineNumber: 40,
                     columnNumber: 9
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form, {
                     __source: {
                         fileName: "src/components/login-view/login-view.jsx",
-                        lineNumber: 39,
+                        lineNumber: 41,
                         columnNumber: 11
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.CardGroup, {
                         __source: {
                             fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 40,
+                            lineNumber: 42,
                             columnNumber: 13
                         },
                         __self: this,
                         children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card, {
                             __source: {
                                 fileName: "src/components/login-view/login-view.jsx",
-                                lineNumber: 41,
+                                lineNumber: 43,
                                 columnNumber: 15
                             },
                             __self: this,
@@ -27772,7 +27776,7 @@ function LoginView(props) {
                                 /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Header, {
                                     __source: {
                                         fileName: "src/components/login-view/login-view.jsx",
-                                        lineNumber: 42,
+                                        lineNumber: 44,
                                         columnNumber: 17
                                     },
                                     __self: this,
@@ -27782,7 +27786,7 @@ function LoginView(props) {
                                     controlId: "formUsername",
                                     __source: {
                                         fileName: "src/components/login-view/login-view.jsx",
-                                        lineNumber: 43,
+                                        lineNumber: 45,
                                         columnNumber: 17
                                     },
                                     __self: this,
@@ -27790,7 +27794,7 @@ function LoginView(props) {
                                         /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                                             __source: {
                                                 fileName: "src/components/login-view/login-view.jsx",
-                                                lineNumber: 44,
+                                                lineNumber: 46,
                                                 columnNumber: 19
                                             },
                                             __self: this,
@@ -27802,7 +27806,7 @@ function LoginView(props) {
                                             ,
                                             __source: {
                                                 fileName: "src/components/login-view/login-view.jsx",
-                                                lineNumber: 45,
+                                                lineNumber: 47,
                                                 columnNumber: 19
                                             },
                                             __self: this
@@ -27813,7 +27817,7 @@ function LoginView(props) {
                                     controlId: "formPassword",
                                     __source: {
                                         fileName: "src/components/login-view/login-view.jsx",
-                                        lineNumber: 48,
+                                        lineNumber: 50,
                                         columnNumber: 17
                                     },
                                     __self: this,
@@ -27821,7 +27825,7 @@ function LoginView(props) {
                                         /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                                             __source: {
                                                 fileName: "src/components/login-view/login-view.jsx",
-                                                lineNumber: 49,
+                                                lineNumber: 51,
                                                 columnNumber: 19
                                             },
                                             __self: this,
@@ -27833,7 +27837,7 @@ function LoginView(props) {
                                             ,
                                             __source: {
                                                 fileName: "src/components/login-view/login-view.jsx",
-                                                lineNumber: 50,
+                                                lineNumber: 52,
                                                 columnNumber: 19
                                             },
                                             __self: this
@@ -27846,11 +27850,20 @@ function LoginView(props) {
                                     onClick: handleSubmit,
                                     __source: {
                                         fileName: "src/components/login-view/login-view.jsx",
-                                        lineNumber: 52,
+                                        lineNumber: 54,
                                         columnNumber: 17
                                     },
                                     __self: this,
                                     children: "Submit"
+                                }),
+                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Header, {
+                                    __source: {
+                                        fileName: "src/components/login-view/login-view.jsx",
+                                        lineNumber: 57,
+                                        columnNumber: 17
+                                    },
+                                    __self: this,
+                                    children: "Not registered yet?"
                                 })
                             ]
                         })
@@ -27870,7 +27883,7 @@ $RefreshReg$(_c, "LoginView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"6Ds2u","react":"4mchR","react-bootstrap":"9qMdX","axios":"1IeuP","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13"}],"9qMdX":[function(require,module,exports) {
+},{"react/jsx-runtime":"6Ds2u","react":"4mchR","react-bootstrap":"9qMdX","axios":"1IeuP","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13","react-router-dom":"etVME"}],"9qMdX":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Accordion", ()=>_accordionDefault.default
@@ -40042,7 +40055,7 @@ class MovieView extends _reactDefault.default.Component {
                     ]
                 }),
                 /*#__PURE__*/ _jsxRuntime.jsxs(_reactRouterDom.Link, {
-                    to: `/genre`,
+                    to: `/genre/${movie.genre.name}`,
                     className: "mr-2",
                     __source: {
                         fileName: "src/components/movie-view/movie-view.jsx",
@@ -40204,7 +40217,7 @@ class DirectorView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "src/components/director-view/director-view.jsx",
-                lineNumber: 14,
+                lineNumber: 13,
                 columnNumber: 13
             },
             __self: this,
@@ -40213,7 +40226,7 @@ class DirectorView extends _reactDefault.default.Component {
                     className: "director-name",
                     __source: {
                         fileName: "src/components/director-view/director-view.jsx",
-                        lineNumber: 15,
+                        lineNumber: 14,
                         columnNumber: 17
                     },
                     __self: this,
@@ -40222,7 +40235,7 @@ class DirectorView extends _reactDefault.default.Component {
                             className: "label",
                             __source: {
                                 fileName: "src/components/director-view/director-view.jsx",
-                                lineNumber: 16,
+                                lineNumber: 15,
                                 columnNumber: 21
                             },
                             __self: this,
@@ -40231,7 +40244,7 @@ class DirectorView extends _reactDefault.default.Component {
                                 /*#__PURE__*/ _jsxRuntime.jsx("br", {
                                     __source: {
                                         fileName: "src/components/director-view/director-view.jsx",
-                                        lineNumber: 16,
+                                        lineNumber: 15,
                                         columnNumber: 51
                                     },
                                     __self: this
@@ -40242,7 +40255,7 @@ class DirectorView extends _reactDefault.default.Component {
                             className: "value",
                             __source: {
                                 fileName: "src/components/director-view/director-view.jsx",
-                                lineNumber: 17,
+                                lineNumber: 16,
                                 columnNumber: 21
                             },
                             __self: this,
@@ -40254,7 +40267,7 @@ class DirectorView extends _reactDefault.default.Component {
                     className: "director-bio",
                     __source: {
                         fileName: "src/components/director-view/director-view.jsx",
-                        lineNumber: 19,
+                        lineNumber: 18,
                         columnNumber: 17
                     },
                     __self: this,
@@ -40263,7 +40276,7 @@ class DirectorView extends _reactDefault.default.Component {
                             className: "label",
                             __source: {
                                 fileName: "src/components/director-view/director-view.jsx",
-                                lineNumber: 20,
+                                lineNumber: 19,
                                 columnNumber: 21
                             },
                             __self: this,
@@ -40271,7 +40284,7 @@ class DirectorView extends _reactDefault.default.Component {
                                 /*#__PURE__*/ _jsxRuntime.jsx("br", {
                                     __source: {
                                         fileName: "src/components/director-view/director-view.jsx",
-                                        lineNumber: 20,
+                                        lineNumber: 19,
                                         columnNumber: 45
                                     },
                                     __self: this
@@ -40280,7 +40293,7 @@ class DirectorView extends _reactDefault.default.Component {
                                 /*#__PURE__*/ _jsxRuntime.jsx("br", {
                                     __source: {
                                         fileName: "src/components/director-view/director-view.jsx",
-                                        lineNumber: 20,
+                                        lineNumber: 19,
                                         columnNumber: 65
                                     },
                                     __self: this
@@ -40291,7 +40304,7 @@ class DirectorView extends _reactDefault.default.Component {
                             className: "value",
                             __source: {
                                 fileName: "src/components/director-view/director-view.jsx",
-                                lineNumber: 21,
+                                lineNumber: 20,
                                 columnNumber: 21
                             },
                             __self: this,
@@ -40303,7 +40316,7 @@ class DirectorView extends _reactDefault.default.Component {
                     className: "director-year",
                     __source: {
                         fileName: "src/components/director-view/director-view.jsx",
-                        lineNumber: 23,
+                        lineNumber: 22,
                         columnNumber: 17
                     },
                     __self: this,
@@ -40312,7 +40325,7 @@ class DirectorView extends _reactDefault.default.Component {
                             className: "label",
                             __source: {
                                 fileName: "src/components/director-view/director-view.jsx",
-                                lineNumber: 24,
+                                lineNumber: 23,
                                 columnNumber: 21
                             },
                             __self: this,
@@ -40320,7 +40333,7 @@ class DirectorView extends _reactDefault.default.Component {
                                 /*#__PURE__*/ _jsxRuntime.jsx("br", {
                                     __source: {
                                         fileName: "src/components/director-view/director-view.jsx",
-                                        lineNumber: 24,
+                                        lineNumber: 23,
                                         columnNumber: 45
                                     },
                                     __self: this
@@ -40329,7 +40342,7 @@ class DirectorView extends _reactDefault.default.Component {
                                 /*#__PURE__*/ _jsxRuntime.jsx("br", {
                                     __source: {
                                         fileName: "src/components/director-view/director-view.jsx",
-                                        lineNumber: 24,
+                                        lineNumber: 23,
                                         columnNumber: 66
                                     },
                                     __self: this
@@ -40340,7 +40353,7 @@ class DirectorView extends _reactDefault.default.Component {
                             className: "value",
                             __source: {
                                 fileName: "src/components/director-view/director-view.jsx",
-                                lineNumber: 25,
+                                lineNumber: 24,
                                 columnNumber: 21
                             },
                             __self: this,
@@ -40353,14 +40366,14 @@ class DirectorView extends _reactDefault.default.Component {
                     className: "mr-2",
                     __source: {
                         fileName: "src/components/director-view/director-view.jsx",
-                        lineNumber: 27,
+                        lineNumber: 26,
                         columnNumber: 17
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsx("button", {
                         __source: {
                             fileName: "src/components/director-view/director-view.jsx",
-                            lineNumber: 28,
+                            lineNumber: 27,
                             columnNumber: 21
                         },
                         __self: this,
@@ -40395,8 +40408,8 @@ var _reactRouterDom = require("react-router-dom");
 var _genreViewScss = require("./genre-view.scss");
 class GenreView extends _reactDefault.default.Component {
     render() {
-        const { genre  } = this.props;
-        console.log('gw props:', this.props);
+        const { genreObject  } = this.props;
+        console.log(genreObject);
         return(/*#__PURE__*/ _jsxRuntime.jsxs("div", {
             className: "genre-view",
             style: {
@@ -40405,7 +40418,7 @@ class GenreView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "src/components/genre-view/genre-view.jsx",
-                lineNumber: 11,
+                lineNumber: 13,
                 columnNumber: 13
             },
             __self: this,
@@ -40414,8 +40427,8 @@ class GenreView extends _reactDefault.default.Component {
                     className: "genre-name",
                     __source: {
                         fileName: "src/components/genre-view/genre-view.jsx",
-                        lineNumber: 12,
-                        columnNumber: 13
+                        lineNumber: 14,
+                        columnNumber: 17
                     },
                     __self: this,
                     children: [
@@ -40423,8 +40436,8 @@ class GenreView extends _reactDefault.default.Component {
                             className: "label",
                             __source: {
                                 fileName: "src/components/genre-view/genre-view.jsx",
-                                lineNumber: 13,
-                                columnNumber: 17
+                                lineNumber: 15,
+                                columnNumber: 21
                             },
                             __self: this,
                             children: [
@@ -40432,8 +40445,8 @@ class GenreView extends _reactDefault.default.Component {
                                 /*#__PURE__*/ _jsxRuntime.jsx("br", {
                                     __source: {
                                         fileName: "src/components/genre-view/genre-view.jsx",
-                                        lineNumber: 13,
-                                        columnNumber: 47
+                                        lineNumber: 15,
+                                        columnNumber: 51
                                     },
                                     __self: this
                                 })
@@ -40443,11 +40456,11 @@ class GenreView extends _reactDefault.default.Component {
                             className: "value",
                             __source: {
                                 fileName: "src/components/genre-view/genre-view.jsx",
-                                lineNumber: 14,
-                                columnNumber: 17
+                                lineNumber: 16,
+                                columnNumber: 21
                             },
                             __self: this,
-                            children: genre.name
+                            children: genreObject.name
                         })
                     ]
                 }),
@@ -40455,8 +40468,8 @@ class GenreView extends _reactDefault.default.Component {
                     className: "genre-description",
                     __source: {
                         fileName: "src/components/genre-view/genre-view.jsx",
-                        lineNumber: 16,
-                        columnNumber: 13
+                        lineNumber: 18,
+                        columnNumber: 17
                     },
                     __self: this,
                     children: [
@@ -40464,16 +40477,16 @@ class GenreView extends _reactDefault.default.Component {
                             className: "label",
                             __source: {
                                 fileName: "src/components/genre-view/genre-view.jsx",
-                                lineNumber: 17,
-                                columnNumber: 17
+                                lineNumber: 19,
+                                columnNumber: 21
                             },
                             __self: this,
                             children: [
                                 /*#__PURE__*/ _jsxRuntime.jsx("br", {
                                     __source: {
                                         fileName: "src/components/genre-view/genre-view.jsx",
-                                        lineNumber: 17,
-                                        columnNumber: 41
+                                        lineNumber: 19,
+                                        columnNumber: 45
                                     },
                                     __self: this
                                 }),
@@ -40481,8 +40494,8 @@ class GenreView extends _reactDefault.default.Component {
                                 /*#__PURE__*/ _jsxRuntime.jsx("br", {
                                     __source: {
                                         fileName: "src/components/genre-view/genre-view.jsx",
-                                        lineNumber: 17,
-                                        columnNumber: 63
+                                        lineNumber: 19,
+                                        columnNumber: 67
                                     },
                                     __self: this
                                 })
@@ -40492,11 +40505,11 @@ class GenreView extends _reactDefault.default.Component {
                             className: "value",
                             __source: {
                                 fileName: "src/components/genre-view/genre-view.jsx",
-                                lineNumber: 18,
-                                columnNumber: 17
+                                lineNumber: 20,
+                                columnNumber: 21
                             },
                             __self: this,
-                            children: genre.description
+                            children: genreObject.description
                         })
                     ]
                 }),
@@ -40505,15 +40518,15 @@ class GenreView extends _reactDefault.default.Component {
                     className: "mr-2",
                     __source: {
                         fileName: "src/components/genre-view/genre-view.jsx",
-                        lineNumber: 20,
-                        columnNumber: 13
+                        lineNumber: 22,
+                        columnNumber: 17
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsx("button", {
                         __source: {
                             fileName: "src/components/genre-view/genre-view.jsx",
-                            lineNumber: 21,
-                            columnNumber: 17
+                            lineNumber: 23,
+                            columnNumber: 21
                         },
                         __self: this,
                         children: "go back"
