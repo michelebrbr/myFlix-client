@@ -1,16 +1,18 @@
 import React from 'react';
 import axios from 'axios';
-//import { RegistrationView } from '../registration-view/registration-view';
-
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 
 import { LoginView } from '../login-view/login-view';
+import { RegistrationView } from '../registration-view/registration-view'
+
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { Navbar, Nav, Container, Row, Col, Button, Image } from 'react-bootstrap';
 import { ProfileView } from '../profile-view/profile-view';
 import { DirectorView} from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
+
+
 
 export class MainView extends React.Component {
 
@@ -114,6 +116,9 @@ export class MainView extends React.Component {
                     <Link to={`/profile`} className="mr-2">
                         <Button varient="link">Profile for {user}</Button>
                     </Link>
+                    <Link to={`/register`} className="mr-2">
+                        <Button varient="link">Registration</Button>
+                    </Link>
                     <Button onClick={() => this.onLoggedOut()} varient="link">Logout</Button>
                 </Navbar.Collapse>
               )}
@@ -153,6 +158,12 @@ export class MainView extends React.Component {
             genreObject={movies.find((movie) => movie.genre.name === match.params.name).genre }
             />
           }}/>
+          <Route exact path="/register" render={() => {
+            return <Col>
+                <RegistrationView
+                  />
+                </Col>
+              }} />
           
         </Row>
       </Router>
