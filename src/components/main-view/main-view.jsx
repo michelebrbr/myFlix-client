@@ -93,9 +93,6 @@ export class MainView extends React.Component {
   render() {
     const { movies, selectedMovie, user, userObject } = this.state;
     
-    
-
-
     if (!user) return <Row>
       <Col>
         <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
@@ -150,9 +147,11 @@ export class MainView extends React.Component {
             directorObject={movies.find((movie) => movie.director.name === match.params.name).director }
             />
           }}/>
-          <Route exact path="/genre" render={({match}) => {
+          <Route exact path="/genre/:name" render={({match}) => {
+            if (movies.length === 0) return <div className="main-view" />;
             return <GenreView 
-            genre={movies.find((movie) => movie.genre.genreName === match.params.genreName).genre }/>
+            genreObject={movies.find((movie) => movie.genre.name === match.params.name).genre }
+            />
           }}/>
           
         </Row>
