@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import './director-view.scss'
 
 export class DirectorView extends React.Component {
-
     render(){
         const { directorObject } = this.props;
         console.log(directorObject);
