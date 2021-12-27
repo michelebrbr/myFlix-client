@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Button, Form, Container, Col, Row, CardGroup, Card } from 'react-bootstrap';
 import axios from 'axios';
+import {  BrowserRouter as Router } from 'react-router-dom';
 import { Link } from "react-router-dom";
-
 
 export function LoginView(props) {
   const [username, setUsername] = useState('');
@@ -54,7 +54,12 @@ export function LoginView(props) {
                 <Button variant="primary" type="submit" onClick={handleSubmit}>
                   Submit
                 </Button>
+                <Router>
                 <Card.Header>Not registered yet?</Card.Header>
+                  <Link to={`/register`} className="mr-2">
+                    <button>Register</button><br></br>
+                   </Link>
+                </Router>
               </Card>
             </CardGroup>
           </Form>
