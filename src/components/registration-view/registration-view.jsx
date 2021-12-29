@@ -3,8 +3,9 @@ import PropTypes from "prop-types";
 import axios from 'axios'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import {  BrowserRouter as Router } from 'react-router-dom';
 import './registration-view.scss';
+import { Link } from "react-router-dom";
+
 
 export function RegistrationView() {
   const [username, setUsername] = useState("");
@@ -32,8 +33,7 @@ export function RegistrationView() {
   };
 
   return (
-    <div className="registration" style={{ width: '30%', margin: 'auto' }}>
-    <Router>   
+    <div className="registration" style={{ width: '30%', margin: 'auto' }}> 
     <Form>
     <h1 className="form-title">Register</h1>
       <Form.Group controlId="registration-Username">
@@ -56,7 +56,9 @@ export function RegistrationView() {
       <Button variant="success link" className="registerBtn" type="submit" onClick={handleSubmit}>Register </Button>
       </div>
     </Form>
-    </Router>
+    <Link to="/" className="mr-2">
+      <button>go to Login page</button>
+    </Link>
   </div>
   );
 }
