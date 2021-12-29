@@ -48,7 +48,7 @@ export function LoginView(props) {
               </CardGroup>
             </Form>
             <Link to="/register" className="mr-2">
-              <button>Register</button>
+              <button>Create an Account</button>
             </Link>
           </Col>
         </Row> 
