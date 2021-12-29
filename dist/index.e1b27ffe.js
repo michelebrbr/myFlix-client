@@ -27857,7 +27857,7 @@ function LoginView(props) {
                                 columnNumber: 15
                             },
                             __self: this,
-                            children: "Register"
+                            children: "Create an Account"
                         })
                     })
                 ]
@@ -40111,6 +40111,10 @@ parcelHelpers.export(exports, "ProfileView", ()=>ProfileView
 var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _reactRouterDom = require("react-router-dom");
+var _reactBootstrap = require("react-bootstrap");
 class ProfileView extends _reactDefault.default.Component {
     componentDidMount() {
         const { userObject  } = this.props;
@@ -40120,12 +40124,31 @@ class ProfileView extends _reactDefault.default.Component {
         console.log(this.props);
         console.log(this.state);
     }
+    deleteAccount() {
+        const answer = window.confirm("Are you sure you want to delete your account?");
+        if (answer) {
+            const token = localStorage.getItem("token");
+            const user = localStorage.getItem("user");
+            _axiosDefault.default.delete(`https://raftelapi.herokuapp.com/users/${user}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            }).then(()=>{
+                alert(user + " has been deleted.");
+                localStorage.removeItem('user');
+                localStorage.removeItem('token');
+                window.location.pathname = "/";
+            }).catch(function(error) {
+                console.log(error);
+            });
+        }
+    }
     render() {
         const { userObject  } = this.props;
         return(/*#__PURE__*/ _jsxRuntime.jsxs("div", {
             __source: {
                 fileName: "src/components/profile-view/profile-view.jsx",
-                lineNumber: 18,
+                lineNumber: 43,
                 columnNumber: 7
             },
             __self: this,
@@ -40133,7 +40156,7 @@ class ProfileView extends _reactDefault.default.Component {
                 /*#__PURE__*/ _jsxRuntime.jsxs("p", {
                     __source: {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 19,
+                        lineNumber: 44,
                         columnNumber: 9
                     },
                     __self: this,
@@ -40145,7 +40168,7 @@ class ProfileView extends _reactDefault.default.Component {
                 /*#__PURE__*/ _jsxRuntime.jsxs("p", {
                     __source: {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 20,
+                        lineNumber: 45,
                         columnNumber: 9
                     },
                     __self: this,
@@ -40157,7 +40180,7 @@ class ProfileView extends _reactDefault.default.Component {
                 /*#__PURE__*/ _jsxRuntime.jsxs("p", {
                     __source: {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 21,
+                        lineNumber: 46,
                         columnNumber: 9
                     },
                     __self: this,
@@ -40169,14 +40192,48 @@ class ProfileView extends _reactDefault.default.Component {
                 /*#__PURE__*/ _jsxRuntime.jsxs("p", {
                     __source: {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 22,
+                        lineNumber: 47,
                         columnNumber: 9
                     },
                     __self: this,
                     children: [
                         "favorites: ",
-                        userObject.favmovies
+                        userObject.favoriteMovies
                     ]
+                }),
+                /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
+                    to: `/`,
+                    className: "mr-2",
+                    __source: {
+                        fileName: "src/components/profile-view/profile-view.jsx",
+                        lineNumber: 48,
+                        columnNumber: 9
+                    },
+                    __self: this,
+                    children: /*#__PURE__*/ _jsxRuntime.jsx("button", {
+                        __source: {
+                            fileName: "src/components/profile-view/profile-view.jsx",
+                            lineNumber: 49,
+                            columnNumber: 11
+                        },
+                        __self: this,
+                        children: "go back"
+                    })
+                }),
+                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
+                    size: "md",
+                    variant: "outline-danger",
+                    type: "submit",
+                    ml: "4",
+                    onClick: ()=>this.deleteAccount()
+                    ,
+                    __source: {
+                        fileName: "src/components/profile-view/profile-view.jsx",
+                        lineNumber: 51,
+                        columnNumber: 9
+                    },
+                    __self: this,
+                    children: "Delete Account"
                 })
             ]
         }));
@@ -40188,7 +40245,7 @@ class ProfileView extends _reactDefault.default.Component {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"6Ds2u","react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13"}],"47DIu":[function(require,module,exports) {
+},{"react/jsx-runtime":"6Ds2u","react":"4mchR","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13","react-router-dom":"etVME","react-bootstrap":"9qMdX","axios":"1IeuP"}],"47DIu":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$da2a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
