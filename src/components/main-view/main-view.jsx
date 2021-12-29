@@ -1,13 +1,13 @@
 import React from 'react';
 import axios from 'axios';
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view'
 
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
-import { Navbar, Nav, Container, Row, Col, Button, Image } from 'react-bootstrap';
+import { Navbar, Row, Col, Button, Image } from 'react-bootstrap';
 import { ProfileView } from '../profile-view/profile-view';
 import { DirectorView} from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
@@ -62,19 +62,12 @@ export class MainView extends React.Component {
       });
     } 
 
-    /*onLoggedIn(user) {
-      this.setState({
-        user
-      });
-    }*/
-
     onLoggedIn(authData) {
       console.log(authData);
       console.log(authData.user);
       this.setState({
         user: authData.user.username,
         userObject: authData.user
-
       });
     
       localStorage.setItem('token', authData.token);
@@ -95,13 +88,6 @@ export class MainView extends React.Component {
   render() {
     const { movies, selectedMovie, user, userObject } = this.state;
     
-    if (!user) return <Row>
-      <Col>
-        <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
-      </Col>
-    </Row>
-    if (movies.length === 0) return <div className="main-view" />;
-
     return (
       <Router>
         <Navbar expand="lg" className="mb-4">
@@ -115,9 +101,6 @@ export class MainView extends React.Component {
                 <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
                     <Link to={`/profile`} className="mr-2">
                         <Button varient="link">Profile for {user}</Button>
-                    </Link>
-                    <Link to={`/register`} className="mr-2">
-                        <Button varient="link">Registration</Button>
                     </Link>
                     <Button onClick={() => this.onLoggedOut()} varient="link">Logout</Button>
                 </Navbar.Collapse>
