@@ -1,9 +1,18 @@
 import React from 'react';
 
 export class ProfileView extends React.Component {
-
-  render() {
+  componentDidMount() {
+    const { userObject } = this.props;
+    this.setState({ userObject });
     console.log(this.props);
+    console.log(this.state);
+
+  }
+
+  
+  
+  render() {
+    
     const { userObject } = this.props;
     return(
       <div>
