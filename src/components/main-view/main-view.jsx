@@ -69,7 +69,7 @@ export class MainView extends React.Component {
       { headers: { Authorization: `Bearer ${token}` } }
       ).then(() => {
         alert("movie has been added to favorite");
-        this.componentDidMount();
+        this.componentDidMount()
       })
       .catch(function (error) {
         console.log(error);
