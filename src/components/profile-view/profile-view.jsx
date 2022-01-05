@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import { Button, Card } from 'react-bootstrap';
+import './profile-view.scss';
+
 
 
 
@@ -74,10 +76,9 @@ export class ProfileView extends React.Component {
 
           {favMovies.map(movie => ( 
               <Card key={movie._id}>
-                <Card.Img variant="top" src={movie.ImagePath} />
+                <Card.Img variant="top" className="imgCard" src={movie.imagePath} />
                 <Card.Body>
                   <Card.Title>{movie.title}</Card.Title>
-                  <Card.Text>{movie.description}</Card.Text>
                   <Button onClick={() => this.removeFavorite(movie)}>Remove from favorites</Button>
 
                 </Card.Body>
