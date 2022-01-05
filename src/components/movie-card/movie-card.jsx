@@ -10,11 +10,10 @@ export class MovieCard extends React.Component {
 
     return (
       <Card>
-        <Card.Img variant="top" src={movie.ImagePath} />
+        <Card.Img variant="top" src={movie.imagePath} />
         <Card.Body>
           <Card.Title>{movie.title}</Card.Title>
-          <Card.Text>{movie.description}</Card.Text>
-          <Button style={{ color:"#808080"}} onClick={() => onMovieClick(movie)} variant="link">Open</Button>
+          <Button style={{ color:"#808080"}} onClick={() => onMovieClick(movie)} variant="link">View details</Button>
           <Button onClick={() => addFavorite(movie)}>Add to favorite</Button>
         </Card.Body>
       </Card>
@@ -26,7 +25,7 @@ MovieCard.propTypes = {
   movie: PropTypes.shape({
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    ImagePath: PropTypes.string
+    imagePath: PropTypes.string.isRequired,
   }).isRequired,
   onMovieClick: PropTypes.func
 };
