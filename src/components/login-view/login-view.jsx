@@ -43,7 +43,7 @@ export function LoginView(props) {
                   <Button variant="primary" type="submit" onClick={handleSubmit}>
                     Submit
                   </Button>
-                  <Card.Header>Not registered yet?</Card.Header>
+                  <Card.Header>First time on MyFlix?</Card.Header>
                 </Card>
               </CardGroup>
             </Form>
