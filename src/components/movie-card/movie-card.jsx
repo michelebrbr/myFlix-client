@@ -9,8 +9,8 @@ export class MovieCard extends React.Component {
     const { movie, onMovieClick, addFavorite } = this.props;
 
     return (
-      <Card>
-        <Card.Img variant="top" src={movie.imagePath} />
+      <Card border="dark">
+        <Card.Img variant="top" src={movie.imagePath}/>
         <Card.Body>
           <Card.Title>{movie.title}</Card.Title>
           <Button style={{ color:"#808080"}} onClick={() => onMovieClick(movie)} variant="link">View details</Button>
