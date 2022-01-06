@@ -22808,7 +22808,6 @@ class MainView extends _reactDefault.default.Component {
             }
         }).then(()=>{
             alert("movie has been added to favorite");
-            this.componentDidMount();
         }).catch(function(error) {
             console.log(error);
         });
@@ -22835,13 +22834,13 @@ class MainView extends _reactDefault.default.Component {
     }
     render() {
         const { movies , selectedMovie , user: user1 , userObject  } = this.state;
-        let favMovies = userObject ? movies.filter((movie)=>userObject.favoriteMovies.includes(movie._id)
+        let favMovies = userObject ? movies.filter((movie)=>userObject.favoriteMovies && userObject.favoriteMovies.includes(movie._id)
         ) : [];
         //console.log("userObject", localStorage.getItem('userObject'));
         return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactRouterDom.BrowserRouter, {
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 110,
+                lineNumber: 109,
                 columnNumber: 7
             },
             __self: this,
@@ -22851,7 +22850,7 @@ class MainView extends _reactDefault.default.Component {
                     className: "mb-4",
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 111,
+                        lineNumber: 110,
                         columnNumber: 9
                     },
                     __self: this,
@@ -22860,7 +22859,7 @@ class MainView extends _reactDefault.default.Component {
                             className: "ml-4",
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 112,
+                                lineNumber: 111,
                                 columnNumber: 11
                             },
                             __self: this,
@@ -22868,7 +22867,7 @@ class MainView extends _reactDefault.default.Component {
                                 to: '/',
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 113,
+                                    lineNumber: 112,
                                     columnNumber: 13
                                 },
                                 __self: this,
@@ -22878,7 +22877,7 @@ class MainView extends _reactDefault.default.Component {
                                     className: "d-inline-block align-top",
                                     __source: {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 114,
+                                        lineNumber: 113,
                                         columnNumber: 15
                                     },
                                     __self: this
@@ -22889,7 +22888,7 @@ class MainView extends _reactDefault.default.Component {
                             "aria-controls": "basic-navbar-nav",
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 117,
+                                lineNumber: 116,
                                 columnNumber: 11
                             },
                             __self: this
@@ -22899,7 +22898,7 @@ class MainView extends _reactDefault.default.Component {
                             className: "justify-content-end",
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 119,
+                                lineNumber: 118,
                                 columnNumber: 17
                             },
                             __self: this,
@@ -22909,7 +22908,7 @@ class MainView extends _reactDefault.default.Component {
                                     className: "mr-2",
                                     __source: {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 120,
+                                        lineNumber: 119,
                                         columnNumber: 21
                                     },
                                     __self: this,
@@ -22917,7 +22916,7 @@ class MainView extends _reactDefault.default.Component {
                                         varient: "link",
                                         __source: {
                                             fileName: "src/components/main-view/main-view.jsx",
-                                            lineNumber: 121,
+                                            lineNumber: 120,
                                             columnNumber: 25
                                         },
                                         __self: this,
@@ -22933,7 +22932,7 @@ class MainView extends _reactDefault.default.Component {
                                     varient: "link",
                                     __source: {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 123,
+                                        lineNumber: 122,
                                         columnNumber: 21
                                     },
                                     __self: this,
@@ -22947,7 +22946,7 @@ class MainView extends _reactDefault.default.Component {
                     className: "main-view justify-content-md-center",
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 127,
+                        lineNumber: 126,
                         columnNumber: 9
                     },
                     __self: this,
@@ -22980,7 +22979,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 128,
+                                lineNumber: 127,
                                 columnNumber: 11
                             },
                             __self: this
@@ -22997,7 +22996,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 146,
+                                lineNumber: 145,
                                 columnNumber: 11
                             },
                             __self: this
@@ -23016,7 +23015,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 150,
+                                lineNumber: 149,
                                 columnNumber: 11
                             },
                             __self: this
@@ -23035,7 +23034,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 156,
+                                lineNumber: 155,
                                 columnNumber: 11
                             },
                             __self: this
@@ -23049,7 +23048,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 162,
+                                lineNumber: 161,
                                 columnNumber: 11
                             },
                             __self: this
@@ -39817,6 +39816,7 @@ class MovieCard extends _reactDefault.default.Component {
     render() {
         const { movie , onMovieClick , addFavorite  } = this.props;
         return(/*#__PURE__*/ _jsxRuntime.jsxs(_cardDefault.default, {
+            border: "dark",
             __source: {
                 fileName: "src/components/movie-card/movie-card.jsx",
                 lineNumber: 12,
@@ -40153,7 +40153,6 @@ class ProfileView extends _reactDefault.default.Component {
         }).then((response)=>{
             console.log(response);
             alert("Movie was removed");
-            this.componentDidMount();
         }).catch(function(error) {
             console.log(error);
         });
@@ -40187,7 +40186,7 @@ class ProfileView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "src/components/profile-view/profile-view.jsx",
-                lineNumber: 60,
+                lineNumber: 59,
                 columnNumber: 14
             },
             __self: this,
@@ -40195,7 +40194,7 @@ class ProfileView extends _reactDefault.default.Component {
                 /*#__PURE__*/ _jsxRuntime.jsxs("p", {
                     __source: {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 61,
+                        lineNumber: 60,
                         columnNumber: 9
                     },
                     __self: this,
@@ -40207,7 +40206,7 @@ class ProfileView extends _reactDefault.default.Component {
                 /*#__PURE__*/ _jsxRuntime.jsxs("p", {
                     __source: {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 62,
+                        lineNumber: 61,
                         columnNumber: 9
                     },
                     __self: this,
@@ -40219,7 +40218,7 @@ class ProfileView extends _reactDefault.default.Component {
                 /*#__PURE__*/ _jsxRuntime.jsxs("p", {
                     __source: {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 63,
+                        lineNumber: 62,
                         columnNumber: 9
                     },
                     __self: this,
@@ -40231,7 +40230,7 @@ class ProfileView extends _reactDefault.default.Component {
                 /*#__PURE__*/ _jsxRuntime.jsx("p", {
                     __source: {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 64,
+                        lineNumber: 63,
                         columnNumber: 9
                     },
                     __self: this,
@@ -40246,7 +40245,7 @@ class ProfileView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "src/components/profile-view/profile-view.jsx",
-                lineNumber: 69,
+                lineNumber: 68,
                 columnNumber: 7
             },
             __self: this,
@@ -40254,7 +40253,7 @@ class ProfileView extends _reactDefault.default.Component {
                 /*#__PURE__*/ _jsxRuntime.jsxs("p", {
                     __source: {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 70,
+                        lineNumber: 69,
                         columnNumber: 9
                     },
                     __self: this,
@@ -40266,7 +40265,7 @@ class ProfileView extends _reactDefault.default.Component {
                 /*#__PURE__*/ _jsxRuntime.jsxs("p", {
                     __source: {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 71,
+                        lineNumber: 70,
                         columnNumber: 9
                     },
                     __self: this,
@@ -40278,7 +40277,7 @@ class ProfileView extends _reactDefault.default.Component {
                 /*#__PURE__*/ _jsxRuntime.jsxs("p", {
                     __source: {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 72,
+                        lineNumber: 71,
                         columnNumber: 9
                     },
                     __self: this,
@@ -40290,7 +40289,7 @@ class ProfileView extends _reactDefault.default.Component {
                 /*#__PURE__*/ _jsxRuntime.jsx("p", {
                     __source: {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 73,
+                        lineNumber: 72,
                         columnNumber: 9
                     },
                     __self: this,
@@ -40299,7 +40298,7 @@ class ProfileView extends _reactDefault.default.Component {
                 favMovies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card, {
                         __source: {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 78,
+                            lineNumber: 77,
                             columnNumber: 15
                         },
                         __self: this,
@@ -40310,7 +40309,7 @@ class ProfileView extends _reactDefault.default.Component {
                                 src: movie.imagePath,
                                 __source: {
                                     fileName: "src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 79,
+                                    lineNumber: 78,
                                     columnNumber: 17
                                 },
                                 __self: this
@@ -40318,7 +40317,7 @@ class ProfileView extends _reactDefault.default.Component {
                             /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card.Body, {
                                 __source: {
                                     fileName: "src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 80,
+                                    lineNumber: 79,
                                     columnNumber: 17
                                 },
                                 __self: this,
@@ -40326,7 +40325,7 @@ class ProfileView extends _reactDefault.default.Component {
                                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Title, {
                                         __source: {
                                             fileName: "src/components/profile-view/profile-view.jsx",
-                                            lineNumber: 81,
+                                            lineNumber: 80,
                                             columnNumber: 19
                                         },
                                         __self: this,
@@ -40337,7 +40336,7 @@ class ProfileView extends _reactDefault.default.Component {
                                         ,
                                         __source: {
                                             fileName: "src/components/profile-view/profile-view.jsx",
-                                            lineNumber: 82,
+                                            lineNumber: 81,
                                             columnNumber: 19
                                         },
                                         __self: this,
@@ -40357,7 +40356,7 @@ class ProfileView extends _reactDefault.default.Component {
                     ,
                     __source: {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 86,
+                        lineNumber: 85,
                         columnNumber: 11
                     },
                     __self: this,
