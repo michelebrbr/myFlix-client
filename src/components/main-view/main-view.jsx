@@ -71,7 +71,6 @@ export class MainView extends React.Component {
       { headers: { Authorization: `Bearer ${token}` } }
       ).then(() => {
         alert("movie has been added to favorite");
-        this.componentDidMount()
       })
       .catch(function (error) {
         console.log(error);
@@ -104,7 +103,7 @@ export class MainView extends React.Component {
 
   render() {
     const { movies, selectedMovie, user, userObject } = this.state;
-    let favMovies = userObject ? movies.filter(movie => userObject.favoriteMovies.includes(movie._id)) : [];
+    let favMovies = userObject ? movies.filter(movie => userObject.favoriteMovies && userObject.favoriteMovies.includes(movie._id)) : [];
     //console.log("userObject", localStorage.getItem('userObject'));
     return (
       <Router>
