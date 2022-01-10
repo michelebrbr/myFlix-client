@@ -24,8 +24,7 @@ export class MainView extends React.Component {
     this.state = {
       movies: [],
       selectedMovie: null,
-      user: null,
-      userObject: null
+      user: null
     }
   }
 
@@ -49,8 +48,7 @@ export class MainView extends React.Component {
     let accessToken = localStorage.getItem('token');
     if (accessToken !== null) {
       this.setState({
-        user: localStorage.getItem('user'),
-        userObject: localStorage.getItem('userObject')
+        user: localStorage.getItem('user')
       });
       this.getMovies(accessToken);
       
@@ -69,8 +67,9 @@ export class MainView extends React.Component {
       const user = localStorage.getItem("user");
       axios.post(`https://raftelapi.herokuapp.com/users/${user}/movies/${movie._id}`,{},
       { headers: { Authorization: `Bearer ${token}` } }
-      ).then(() => {
+      ).then((response) => {
         alert("movie has been added to favorite");
+        console.log(response.data);
       })
       .catch(function (error) {
         console.log(error);
@@ -78,23 +77,19 @@ export class MainView extends React.Component {
     };  
 
     onLoggedIn(authData) {
-      console.log(authData);
-      console.log("test", authData.user);
       this.setState({
-        user: authData.user.username,
-        userObject: authData.user
+        user: authData.user.username
       });
+      
     
       localStorage.setItem('token', authData.token);
       localStorage.setItem('user', authData.user.username);
-      localStorage.setItem('userObject', authData.user);
       this.getMovies(authData.token);
     }
 
     onLoggedOut() {
       localStorage.removeItem('token');
       localStorage.removeItem('user');
-      localStorage.removeItem('userObject');
       this.setState({
         user: null
       });
@@ -102,8 +97,8 @@ export class MainView extends React.Component {
     
 
   render() {
-    const { movies, selectedMovie, user, userObject } = this.state;
-    let favMovies = userObject ? movies.filter(movie => userObject.favoriteMovies && userObject.favoriteMovies.includes(movie._id)) : [];
+    const { movies, selectedMovie, user } = this.state;
+    //let favMovies = userObject ? movies.filter(movie => this.state.favMovies && this.state.favMovies.includes(movie._id)) : [];
     //console.log("userObject", localStorage.getItem('userObject'));
     return (
       <Router>
@@ -144,12 +139,18 @@ export class MainView extends React.Component {
               }} />
           <Route exact path="/profile" render={() => {
             return <ProfileView 
-            userObject = {userObject} movie={selectedMovie} favMovies = { favMovies }/>
+            movies = { movies }/>
           }}/>
           <Route exact path="/director/:name" render={({match}) => {
             if (movies.length === 0) return <div className="main-view" />;
             return <DirectorView 
             directorObject={movies.find((movie) => movie.director.name === match.params.name).director }
+            />
+          }}/>
+          <Route exact path="/movie/:title" render={({match}) => {
+            if (movies.length === 0) return <div className="main-view" />;
+            return <MovieView 
+            movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}
             />
           }}/>
           <Route exact path="/genre/:name" render={({match}) => {
