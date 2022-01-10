@@ -3,17 +3,41 @@ import axios from 'axios';
 import { Button, Card } from 'react-bootstrap';
 import './profile-view.scss';
 
-
-
-
 export class ProfileView extends React.Component {
-  componentDidMount() {
-    //const { userObject, movie } = this.props;
-    //this.setState({ userObject });
-    //console.log(this.props);
-    //console.log(this.state);
+
+  constructor(){
+    super();
+    this.state = { 
+      username: '',
+      password: '',
+      email: '',
+      birthday: '',
+      favMovies: []
+      }
 
   }
+  componentDidMount() {
+    const user = localStorage.getItem('user');
+    const token = localStorage.getItem('token');
+
+    axios.get(`https://raftelapi.herokuapp.com/users/${user}`, {
+      headers: { Authorization: `Bearer ${token}`}
+    })
+    .then(response => {
+      // Assign the result to the state
+      this.setState({
+        username: response.data.username,
+        password: response.data.password,
+        email: response.data.email,
+        birthday: response.data.birthday,
+        favMovies: response.data.favoriteMovies
+      });
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  } 
+    
 
   removeFavorite = (movie) => {
     const user = localStorage.getItem('user');
@@ -25,6 +49,10 @@ export class ProfileView extends React.Component {
       .then((response) => {
         console.log(response);
         alert("Movie was removed");
+        let updatedMovies = this.state.favMovies.filter(m => {
+          return m !== movie._id
+        });
+        this.setState({favMovies: updatedMovies})
       })
       .catch(function (error) {
         console.log(error);
@@ -44,7 +72,6 @@ export class ProfileView extends React.Component {
             alert(user + " has been deleted.");
             localStorage.removeItem('user');
             localStorage.removeItem('token');
-            localStorage.removeItem('userObject');
             window.location.pathname = "/";
           })
           .catch(function (error) {
@@ -53,22 +80,22 @@ export class ProfileView extends React.Component {
   }
 
   render() {
-    
-    const { userObject, favMovies } = this.props;
+
+    let favMovies = this.props.movies.filter(movie => this.state.favMovies && this.state.favMovies.includes(movie._id));
     if (favMovies.length === 0){
       return <div style={{ width: '30%', margin: 'auto' }}>
-        <p>username: {userObject.username}</p>
-        <p>email: {userObject.email}</p>
-        <p>birthday: {userObject.birthday}</p>
+        <p>username: {this.state.username}</p>
+        <p>email: {this.state.email}</p>
+        <p>birthday: {this.state.birthday}</p>
         <p>favorites: There are no favorite movies</p>
       </div>
     }
 
     return(
       <div style={{ width: '30%', margin: 'auto' }}>
-        <p>username: {userObject.username}</p>
-        <p>email: {userObject.email}</p>
-        <p>birthday: {userObject.birthday}</p>
+        <p>username: {this.state.username}</p>
+        <p>email: {this.state.email}</p>
+        <p>birthday: {this.state.birthday}</p>
         <p>favorites:</p>
 
     
