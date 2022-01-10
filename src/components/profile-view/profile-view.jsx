@@ -87,7 +87,7 @@ export class ProfileView extends React.Component {
         <p>username: {this.state.username}</p>
         <p>email: {this.state.email}</p>
         <p>birthday: {this.state.birthday}</p>
-        <p>favorites: There are no favorite movies</p>
+        <p>Favorites: There are no favorite movies</p>
       </div>
     }
 
@@ -96,7 +96,7 @@ export class ProfileView extends React.Component {
         <p>username: {this.state.username}</p>
         <p>email: {this.state.email}</p>
         <p>birthday: {this.state.birthday}</p>
-        <p>favorites:</p>
+        <p>Favorite movies:</p>
 
     
 
