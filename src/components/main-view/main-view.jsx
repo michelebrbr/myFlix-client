@@ -112,9 +112,11 @@ export class MainView extends React.Component {
               {user && (
                 <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
                     <Link to={`/profile`} className="mr-2">
-                        <Button varient="link">Profile for {user}</Button>
+                        <Button varient="link">{user}'s profile</Button>
                     </Link>
-                    <Button onClick={() => this.onLoggedOut()} varient="link">Logout</Button>
+                    <Link to={`/`} className="mr-2">
+                      <Button onClick={() => this.onLoggedOut()} varient="link">Logout</Button>
+                    </Link>
                 </Navbar.Collapse>
               )}
         </Navbar>
