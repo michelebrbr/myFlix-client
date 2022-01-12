@@ -42,7 +42,7 @@ export function RegistrationView() {
       </Form.Group>
       <Form.Group controlId="registration-Password">
        <Form.Label>Password:</Form.Label>
-       <Form.Control className="password" value={password} type="text" placeholder="Set a password" onChange={e => setPassword(e.target.value)}></Form.Control>
+       <Form.Control className="password" value={password} type="password" placeholder="Set a password" onChange={e => setPassword(e.target.value)}></Form.Control>
       </Form.Group>
       <Form.Group controlId="registration-Email">
        <Form.Label>Email:</Form.Label>
