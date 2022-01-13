@@ -79,6 +79,14 @@ export class ProfileView extends React.Component {
           })};        
   }
 
+  handleChange(event) {
+    const name = event.target.name
+    const value = event.target.value
+    console.log(name, value)
+  
+    this.setState({[name]: value});
+  }
+
   editUser(e) {
     e.preventDefault();
     const username = localStorage.getItem('user');
@@ -95,13 +103,12 @@ export class ProfileView extends React.Component {
       })
       .then((response) => {
         this.setState({
-          username: response.data.username,
-          password: response.data.password,
-          email: response.data.email,
-          birthday: response.data.birthday
+          username: newUsername,
+          password: newPassword,
+          email: newEmail,
+          birthday: newBirthday
         });
         localStorage.setItem('user', response.data.username);
-        const data = response.data;
         alert('Profile was updated');
         window.location.reload();
       })
@@ -110,7 +117,7 @@ export class ProfileView extends React.Component {
       })
   }
 
-  setUsername(value) {
+  /*setUsername(value) {
     this.state.username = value;
   }
 
@@ -124,7 +131,7 @@ export class ProfileView extends React.Component {
 
   setBirthday(value) {
     this.state.birthday = value;
-  }
+  }*/
 
   render() {
 
@@ -143,22 +150,22 @@ export class ProfileView extends React.Component {
           </div>
             <Form.Group>
               Username
-              <Form.Control type='text' name="Username" placeholder="New Username" onChange={(e) => this.setUsername(e.target.value)} required />
+              <Form.Control type='text' name="username" placeholder="New Username" onChange={this.handleChange} required />
             </Form.Group>
 
             <Form.Group>
               Password
-              <Form.Control type='password' name="Password" placeholder="New Password" onChange={(e) => this.setPassword(e.target.value)} required />
+              <Form.Control type='password' name="password" placeholder="New Password" onChange={this.handleChange} required />
 
             </Form.Group>
             <Form.Group>
               Email Address
-              <Form.Control type='email' name="Email" placeholder="New Email" onChange={(e) => this.setEmail(e.target.value)} required />
+              <Form.Control type='email' name="email" placeholder="New Email" onChange={this.handleChange} required />
 
             </Form.Group>
             <Form.Group>
               Birthday
-              <Form.Control type='date' name="Birthday" onChange={(e) => this.setBirthday(e.target.value)} />
+              <Form.Control type='date' name="birthday" onChange={this.handleChange} required />
 
             </Form.Group>
             <div className="marginSpacer">
